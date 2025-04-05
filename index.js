@@ -9,7 +9,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Replace these with your actual values
+// ✅ Updated with your backend config
 const SUPABASE_URL = 'https://ohprjmgiurwjzovmzdbk.supabase.co';
 const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9ocHJqbWdpdXJ3anpvdm16ZGJrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDM4MTgyMDEsImV4cCI6MjA1OTM5NDIwMX0.l_uFzRrxOt0GV7kWtP7AwFTJT-ip1UVmFSCGB6ZfmOo';
 const WEBHOOK_URL = 'https://discord.com/api/webhooks/1357900003145941203/NVNTaLLHonhLQHRncBtvzYaYVjVIPlaGW3ov1CPIQLijsC1_J0XenkqqD3JLSm1nmqij';
@@ -28,7 +28,7 @@ app.post('/register', async (req, res) => {
   if (error) return res.json({ success: false, error });
 
   await axios.post(WEBHOOK_URL, {
-    content: `📥 New verification request\n**Username**: ${username}\nTo verify: https://your-api.onrender.com/verify?username=${username}&key=${VERIFY_SECRET}`
+    content: `📥 New verification request\n**Username**: ${username}\nTo verify: https://render-gglf.onrender.com/verify?username=${username}&key=${VERIFY_SECRET}`
   });
 
   res.json({ success: true });
